@@ -1,3 +1,3 @@
-2026/08/13-11:25:59.493 acc Reusing MANIFEST C:\labs\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
-2026/08/13-11:25:59.497 acc Recovering log #3
-2026/08/13-11:25:59.498 acc Reusing old log C:\labs\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/000003.log 
+2026/08/13-11:39:46.534 25c8 Reusing MANIFEST C:\labs\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/08/13-11:39:46.540 25c8 Recovering log #3
+2026/08/13-11:39:46.541 25c8 Reusing old log C:\labs\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/000003.log 
