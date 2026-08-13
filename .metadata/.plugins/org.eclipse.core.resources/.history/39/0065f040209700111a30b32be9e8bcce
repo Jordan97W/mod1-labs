@@ -1,0 +1,56 @@
+package labop;
+
+public class AirportKiosk {
+
+	public static void main(String[] args) {
+
+		double amount = 2000.00;
+		String customerType = "VIP";
+		String currency = "USD";
+		double outputAmount = 0.0;
+
+		switch (currency) {
+		case "USD":
+			outputAmount = amount * 1.25;
+			break;
+		case "EUR":
+			outputAmount = amount * 1.15;
+			break;
+		case "JPY":
+			outputAmount = amount * 180.50;
+			break;
+		default:
+			System.out.println("Invalid currency selected!");
+			break;
+		}
+		//calculate service fee
+		if (amount < 100.00) {
+
+			outputAmount *= 1.05;
+
+		} else {
+
+			outputAmount *= 1.025;
+		}
+		//calculate tax
+		switch(customerType) {
+		case "Regular":		
+			outputAmount *= 1.1;
+			break;
+
+		case "VIP":		
+			outputAmount *= 1.05;
+			break;
+			
+		case "Staff":
+		break;
+				
+		default:
+			System.out.println("Invalid customer type!");
+		}
+
+		System.out.println(outputAmount);
+
+	}
+
+}
