@@ -1,0 +1,41 @@
+package labop;
+
+public class AirportKiosk {
+
+	public static void main(String[] args) {
+	
+		double amount = 100.00;
+		String customerType = "Regular";
+		String currency = "JPY";
+		double convertedAmount = 0;
+		double outputAmount = 0;
+		
+		switch(currency) {
+		  case "USD":
+			  convertedAmount = amount * 1.25;
+		    break;
+		  case "EUR":
+			  convertedAmount = amount * 1.15;
+		    break;
+		  case "JPY":
+			  convertedAmount = amount * 180.25;
+			 break;
+		  default:
+		    System.out.println("Invalid currency selected!");
+			 break;
+		}
+		
+		if(amount < 100.00) {
+			
+			outputAmount = convertedAmount * 1.05;
+			
+		}else {
+			
+			outputAmount = convertedAmount * 1.025;
+		}
+		
+		System.out.println(convertedAmount);
+
+	}
+
+}

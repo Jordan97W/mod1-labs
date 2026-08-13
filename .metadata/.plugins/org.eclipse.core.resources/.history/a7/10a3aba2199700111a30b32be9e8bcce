@@ -1,0 +1,23 @@
+package labs;
+
+public class Testing {
+
+	public static void main(String[] args) {
+		
+		// mathematical % gives remainder example 3 % 7 = 1
+		// x += y;
+		// pre increment int y = ++x; = y = 1 x = 1
+		// post increment int y = x++; x = 1 y =0
+		char c = 'A';
+		char k = 'C';
+		System.out.println(c + k);
+
+		int x = 4;
+		long no = x;
+		double d = x;
+
+		System.out.println(d);
+		
+	}
+
+}
