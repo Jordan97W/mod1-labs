@@ -1,0 +1,14 @@
+package labs;
+
+public class Testing {
+
+	public static void main(String[] args) {
+		
+		System.out.printf("%dzn", args);
+		System.out.printf("%", args);
+		
+		
+		
+	}
+
+}

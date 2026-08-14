@@ -1,0 +1,36 @@
+package lab3;
+
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//theLunchQueue();
+		
+		//int weight = getInt("What is your weight in : ");
+		//convertInputToStonesPounds(weight);
+		
+		Getters getters = new Getters();
+		Weight weight = new Weight();
+		
+		int kgs = getters.getInt("What is your weight in kilograms: ");
+		weight.convertKgsToStonePounds(kgs);
+	}	
+
+	public static void theLunchQueue() {
+
+		Getters getters = new Getters();
+		
+		String mainCourse = getters.getString("What main dish would you like(Fish, Burgers or veg)?");
+		int potatoes = getters.getInt("How many roast potatoes would you like?");
+		int sprouts = getters.getInt("How many Brussel Sprouts would you like?");
+
+		System.out.println("Hello, your lunch is " + mainCourse + "with " + potatoes + " roast potatoes " + sprouts
+				+ " Brussel sprouts.");
+
+	}
+	
+
+
+}

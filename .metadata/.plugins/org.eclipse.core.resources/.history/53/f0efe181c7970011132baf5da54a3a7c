@@ -1,0 +1,36 @@
+package lab3;
+
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		System.out.println("Enter an integer: ");
+		Scanner s = new Scanner(System.in);
+		getInt(s.nextInt());
+		
+		System.out.println("Enter a string: ");
+		Scanner s1 = new Scanner(System.in);
+		getString(s1.nextLine());
+		
+
+	}
+
+	public static int getInt(int prompt) {
+
+		System.out.println(prompt);
+		return prompt;
+
+	}
+
+	public static String getString(String prompt) {
+
+		System.out.println(prompt);
+		return prompt;
+
+	}
+
+}
