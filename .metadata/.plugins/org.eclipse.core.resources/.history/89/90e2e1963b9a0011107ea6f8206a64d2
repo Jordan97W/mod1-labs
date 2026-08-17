@@ -1,0 +1,34 @@
+package lab7;
+
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		String action = getString("Do you want to withdraw or deposit?");
+		double amount = 1000.00;
+
+		// Create an Account object
+		Account account = new Account(1, "Jack", 1000.00);
+
+		if (action.toLowerCase() == "deposit") {
+			account.Deposit(amount);
+
+		} else if (action.toLowerCase() == "withdraw") {
+			account.Withdraw(amount);
+
+		}
+
+		// Display account details
+		System.out.println("Account Details:");
+		System.out.println(account.getDetails());
+	}
+
+	public static String getString(String prompt) {
+
+		System.out.println(prompt);
+		Scanner s = new Scanner(System.in);
+		return s.nextLine();
+	}
+}

@@ -1,0 +1,52 @@
+package lab4;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		int[] numbers = { 1, 3, -5, 0, 4, 6, 8 };
+		int total = 0;
+		int average = 0;
+		int small = 0;
+		int large = 0;
+		int zeros = 0;
+
+		/*for (int i : numbers) {
+			total += i;
+			if (i < small) {
+				small = i;
+			}
+			if (i > large) {
+				large = i;
+			}
+			if (i == 0) {
+				zeros++;
+			}
+		}	*/
+		
+		
+		for (int i = 0; i < numbers.length; i++) {
+			total += i;
+			if (numbers[i] < small) {
+				small = numbers[i];
+			}
+			if (numbers[i] > large) {
+				large = numbers[i];
+			}
+			if (numbers[i] == 0) {
+				zeros++;
+			}
+		}
+
+		average = total / numbers.length;
+		System.out.println("Total of numbers is : " + total);
+		System.out.println("Average of numbers is : " + average);
+		System.out.println("Smallest number in numbers is : " + small);
+		System.out.println("Largest number in numbers is : " + large);
+		System.out.println("There are " + zeros + " zeros");
+		
+		
+		
+	}
+
+}

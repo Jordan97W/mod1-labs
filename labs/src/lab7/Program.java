@@ -1,0 +1,48 @@
+package lab7;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		double amount = 1000.00;
+		String action = "";
+		
+		// array of accounts test
+		Account[] accounts = new Account[4];
+		accounts[0] = new Account(1, "Jack", 1000.00);
+		accounts[1] = new Account(2, "Bob", 5000.00);
+		accounts[2] = new Account(3, "Bill", 20.00);
+		accounts[3] = new Account(4, "Jordan", 100.00);
+		//display array of users
+		for(Account user : accounts) {
+			// Display account details
+			System.out.println("Account Details:");
+			System.out.println(user.getDetails());
+		}	
+		
+		/*/ account = account same thing
+		accounts[3].AddInterest();		
+		Account partnerAccount = accounts[3];		
+		System.out.println(accounts[3].getDetails());		
+		partnerAccount.AddInterest();		
+		System.out.println(accounts[3].getDetails());*/		
+		
+		if (action == "Deposit") {
+			accounts[0].Deposit(amount);
+
+		} else if (action == "Withdraw") {
+			accounts[0].Withdraw(amount);
+
+		}else {
+			
+		}
+
+
+	}
+	
+	static void processAmount(Account acc) {
+		acc.AddInterest();
+		
+	}
+
+}

@@ -1,0 +1,26 @@
+package lab7;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		double amount = 1000.00;
+		String action = "Deposit";
+
+		// Create an Account object
+		Account account = new Account(1, "Jack", 1000.00);
+		
+		
+		if (action == "Deposit") {
+			account.Deposit(amount);
+
+		} else if (action == "Withdraw") {
+			account.Withdraw(amount);
+
+		}
+
+		// Display account details
+		System.out.println("Account Details:");
+		System.out.println(account.getDetails());
+	}
+}

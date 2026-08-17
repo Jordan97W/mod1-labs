@@ -1,0 +1,61 @@
+package lab7;
+
+public class Account {
+
+	private int id;
+	private String owner;
+	private double balance;
+
+	// Constructor
+	public Account(int id, String owner, double balance) {
+
+		this.id = id;
+		this.owner = owner;
+		this.balance = balance;
+
+	}
+
+	// Deposit money
+	public void Deposit(double amount) {
+		if (amount < 0) {
+
+			System.out.println("You cannot deposit a negative amount.");
+
+		} else {
+
+			this.balance = this.balance + amount;
+			System.out.println("Deposited: £" + amount);
+		}
+	}
+
+	// Withdraw money
+	public void Withdraw(double amount) {
+		if (amount < 0) {
+
+			System.out.println("You cannot withdraw a negative amount.");
+
+		} else if (amount > balance) {
+
+			System.out.println("You do not have enough money in your account.");
+
+		} else {
+
+			this.balance = this.balance - amount;
+			System.out.println("Withdrawn: £" + amount);
+
+		}
+	}
+
+	// Return account details
+	public String getDetails() {
+
+		return "ID: " + this.id + "\nOwner: " + this.owner + "\nBalance: £" + this.balance;
+
+	}
+
+	public void AddInterest() {
+	    double interest = this.balance * 0.025;
+	    this.balance = this.balance + interest;
+	    System.out.println("Your new balance is " + this.balance);
+	}
+}

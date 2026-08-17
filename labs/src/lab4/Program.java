@@ -10,7 +10,7 @@ public class Program {
 		int small = 0;
 		int large = 0;
 		int zeros = 0;
-
+		
 		for (int i = 0; i < numbers.length; i++) {
 			total += i;
 			if (numbers[i] < small) {
@@ -30,6 +30,9 @@ public class Program {
 		System.out.println("Smallest number in numbers is : " + small);
 		System.out.println("Largest number in numbers is : " + large);
 		System.out.println("There are " + zeros + " zeros");
+		
+		
+		
 	}
 
 }

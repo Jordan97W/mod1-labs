@@ -1,0 +1,32 @@
+package lab7;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		double amount = 1000.00;
+		String action = "Deposit";
+		
+		Account[] accounts = new Account[3];
+		accounts[0] = new Account(1, "Jack", 1000.00);
+		accounts[1] = new Account(1, "Bob", 5000.00);
+		accounts[2] = new Account(1, "Bill", 20.00);
+		
+		for(Account user : accounts) {
+			// Display account details
+			System.out.println("Account Details:");
+			System.out.println(user.getDetails());
+		}
+		
+		if (action == "Deposit") {
+			account.Deposit(amount);
+
+		} else if (action == "Withdraw") {
+			account.Withdraw(amount);
+
+		}
+
+
+	}
+
+}

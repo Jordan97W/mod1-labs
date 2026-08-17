@@ -1,0 +1,19 @@
+package multiply;
+
+public class MultiplyTable {
+
+	public static void main(String[] args) {
+
+		int rows = 10;
+		int cols = 10;
+		
+		for (int row = 1; row <= rows; row++) {
+			for (int col = 1; col <= cols; col++) {
+				System.out.printf("%5d", row * col);
+			}
+
+			System.out.println();
+		}
+	}
+
+}
