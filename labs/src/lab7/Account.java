@@ -16,30 +16,32 @@ public class Account {
 	}
 
 	// Deposit money
-	public void Deposit(double amount) {
+	public void deposit(double amount) {
+		//	check if deposit amount is negative
 		if (amount < 0) {
 
 			System.out.println("You cannot deposit a negative amount.");
 
 		} else {
-
+			// satisfied so deposit
 			this.balance = this.balance + amount;
 			System.out.println("Deposited: £" + amount);
 		}
 	}
 
 	// Withdraw money
-	public void Withdraw(double amount) {
+	public void withdraw(double amount) {
+		// check is withdrawal amount is negative
 		if (amount < 0) {
 
 			System.out.println("You cannot withdraw a negative amount.");
-
+			// check if enough money in account to withdraw
 		} else if (amount > balance) {
 
 			System.out.println("You do not have enough money in your account.");
 
 		} else {
-
+			// satisfied then make withdrawal
 			this.balance = this.balance - amount;
 			System.out.println("Withdrawn: £" + amount);
 
@@ -52,15 +54,15 @@ public class Account {
 		return "ID: " + this.id + "\nOwner: " + this.owner + "\nBalance: £" + this.balance;
 
 	}
-
-	public void AddInterest() {
+	//add interest method
+	public void addInterest() {
 		double interestRate = 0.025;
 		double interest = this.balance * interestRate;
 		this.balance = this.balance + interest;
 	}
-	
+
 	// Get the account owner's name
-		public String getOwner() {
-			return this.owner;
-		}
+	public String getOwner() {
+		return this.owner;
+	}
 }

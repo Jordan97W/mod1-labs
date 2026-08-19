@@ -1,0 +1,39 @@
+package lab8;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+		vehicles.add(new Vehicle(0, 1));
+		vehicles.add(new Vehicle(0, 2));
+		vehicles.add(new Vehicle(0, 3));
+
+		System.out.println("Vehicles created:");
+
+		for (Vehicle vehicle : vehicles) {
+			System.out.println(vehicle.getDetails());
+		}
+
+		System.out.println("Vehicle count: " + Vehicle.getCount());
+		Random rand = new Random();
+		boolean raceFinished = false;
+		while (!raceFinished) {
+			System.out.println("--- Race ---");
+
+			for (Vehicle vehicle : vehicles) {
+				int n = rand.nextInt(10) + 1;
+				vehicle.accelerate(n);
+				System.out.println(vehicle.getDetails());
+				if (vehicle.getDetails().contains("Distance: 1000")) {
+					raceFinished = true;
+					break;
+				}
+			}
+		}
+	}
+}

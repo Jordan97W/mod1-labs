@@ -1,0 +1,65 @@
+package qa;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.util.Timer;
+import javax.swing.*;
+
+public class Game extends Canvas {
+	public static void main(String[] args) {
+		new Game();
+	}
+
+// create an array of 3 balls 
+// call this array balls
+	Ball[] balls = new Ball[3];
+
+	Game() {
+		balls[0] = new Ball(10, 30, 150, 150);
+		balls[1] = new Ball(50, 40, 100, 100);
+		balls[2] = new Ball(100, 30, 50, 50);
+		JFrame frame = new JFrame();
+		this.setSize(600, 450);
+		frame.add(this);
+		frame.pack();
+		frame.setVisible(true);
+
+		Timer t = new Timer();
+		TimerTask tt = new TimerTask() {
+			@Override
+			public void run() {
+				draw();
+			}
+		};
+
+		t.schedule(tt, 0, 50);
+
+		frame.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				t.cancel();
+				tt.cancel();
+			}
+		});
+	}
+
+	public void draw() {
+		this.repaint();
+	}
+
+	public void paint(Graphics g) {
+		g.setColor(Color.black);
+		g.fillRect(0, 0, 600, 450);
+// draw each ball in balls array
+// Tip: See these examples of using the Graphics object
+
+		g.setColor(Color.white);
+		for (Ball b : balls) {
+			g.fillOval(b.x, b.y, b.w, b.h);
+			b.move();
+
+		}
+
+	}
+}

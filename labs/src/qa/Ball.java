@@ -1,0 +1,60 @@
+package qa;
+
+public class Ball {
+
+	//set variables for ball dimensions
+	int x, y, w, h;
+	int dirX, dirY;
+	//set world border size variables as static so we can use anywhere
+	public static int worldW = 600;
+	public static int worldH = 400;
+	// constructor
+	public Ball(int x, int y, int w, int h, int dirX, int dirY) {
+	    this.x = x;
+	    this.y = y;
+	    this.w = w;
+	    this.h = h;
+	    this.dirX = dirX;
+	    this.dirY = dirY;
+	}
+	// constructor to use if we have no direction
+	public Ball(int x, int y, int w, int h) {
+	    this(x, y, w, h, 1, 1);
+	}
+
+	public void move() {
+
+		// Move the ball
+		x += dirX;
+		y += dirY;
+
+		// Left wall
+		if (x < 0) {
+			x = 0;
+			dirX = -dirX;
+		}
+
+		// Top wall
+		if (y < 0) {
+			y = 0;
+			dirY = -dirY;
+		}
+		// adjust width using variables
+		if (x > Ball.worldW - w) {
+			// set if ball hits wall reverse direction
+		    x = Ball.worldW - w;
+		    dirX = -dirX;
+		}
+		// adjust height using variables
+		if (y > Ball.worldH - h) {
+			// set if ball hits wall reverse direction
+		    y = Ball.worldH - h;
+		    dirY = -dirY;
+		}
+	}
+	
+	public static void setWorld(int w, int h) {
+	    worldW = w;
+	    worldH = h;
+	}
+}

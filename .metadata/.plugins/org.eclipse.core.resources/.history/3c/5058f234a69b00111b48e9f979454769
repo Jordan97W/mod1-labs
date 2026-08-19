@@ -1,0 +1,51 @@
+package lab8;
+
+public class Vehicle {
+
+	private int speed;
+	private int lane;
+	private int distanceTravelled;
+
+	private RegistrationPlate registrationPlate;
+	// SET GLOBAL COUNT SO WE DONT GET DUPLICATED NUMBER PLATES
+	private static int count = 0;
+	// SET CONSTRUCTOR FOR VEHICLE
+	public Vehicle(int speed, int lane) {
+		this.speed = speed;
+		this.lane = lane;
+		this.distanceTravelled = 0;
+		registrationPlate = RegistrationPlateFactory.getNextRegistrationPlate();
+		count++;
+	}
+	
+	public void accelerate(int amount) {
+		// ADD SPEED TO ACCELERATE UP TO A MAXIMUM OF 200
+		speed += amount;
+		
+		if (speed > 200) {
+			speed = 200;
+		}
+		// UPDATE DISTANCE TRAVELLED WITH ACCELERATE AMOUNT
+		distanceTravelled += amount;
+	}
+	// REDUCE SPEED WHEN BREAKING
+	public void brake(int amount) {
+		speed -= amount;
+	}
+	// GETTER WHICH RETURNS DETAILS OF CURRENT PROGRESS ALONG WITH DETAILS
+	public String getDetails() {
+		return "Speed: " + speed + ", Lane: " + lane + ", Distance: " + distanceTravelled + ", Plate: "
+				+ registrationPlate.getNumber();
+	}
+	public String getWinnerDetails() {
+		return "Congratulations " + registrationPlate.getNumber() + " you have won the race!! \n You have travelled " + distanceTravelled + ". You raced in " + lane;
+	}
+	// GETTER FOR TOTAL VEHICLES COUNT
+	public static int getCount() {
+		return count;
+	}
+	// GETTER FOR DISTANCE TRAVELLED
+	public int getDistanceTravelled() {
+		return distanceTravelled;
+	}
+}

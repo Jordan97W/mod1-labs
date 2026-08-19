@@ -1,0 +1,74 @@
+package qa;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.util.Timer;
+import javax.swing.*;
+
+public class Game extends Canvas {
+	public static void main(String[] args) {
+		new Game();
+	}
+
+	int test = 1;
+	// create an array of 3 balls
+	// call this array balls
+	Ball[] balls = new Ball[3];
+
+	Game() {
+		if (test == 1) {
+			balls[0] = new Ball(1, 1, 30, 30, 10, 2);
+			balls[1] = new Ball(1, 1, 40, 40, 5, 5);
+			balls[2] = new Ball(1, 1, 50, 50, 1, 3);
+		} else if (test == 2) {
+			balls[0] = new Ball(1, 1, 30, 30);
+			balls[1] = new Ball(10, 10, 40, 40);
+			balls[2] = new Ball(12, 12, 50, 50);
+		}
+		JFrame frame = new JFrame();
+		this.setSize(1000, 600);
+		frame.add(this);
+		frame.pack();
+		frame.setVisible(true);
+		// use set world method to set boundary size
+		Ball.setWorld(Ball.worldH, Ball.worldW);
+		Timer t = new Timer();
+		TimerTask tt = new TimerTask() {
+			@Override
+			public void run() {
+				draw();
+			}
+		};
+
+		t.schedule(tt, 0, 50);
+
+		frame.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				t.cancel();
+				tt.cancel();
+			}
+		});
+	}
+
+	public void draw() {
+		this.repaint();
+	}
+
+	public void paint(Graphics g) {
+		g.setColor(Color.black);
+		// adjust boundary of space using variables
+		g.fillRect(0, 0, Ball.worldW, Ball.worldH);
+		// draw each ball in balls array
+		// Tip: See these examples of using the Graphics object
+
+		g.setColor(Color.white);
+		for (Ball b : balls) {
+			g.fillOval(b.x, b.y, b.w, b.h);
+			b.move();
+
+		}
+
+	}
+}
