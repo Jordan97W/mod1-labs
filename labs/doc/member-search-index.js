@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"lab9","c":"ShoppingBasketItem","l":"getDetails()"},{"p":"lab9","c":"ShoppingBasketItem","l":"ShoppingBasketItem(String, int, double)","u":"%3Cinit%3E(java.lang.String,int,double)"}];updateSearchResults();

@@ -1,0 +1,9 @@
+package qa;
+
+public enum ShapeType {
+    Rectangle,
+    ThreeDRectangle,
+    RoundRectangle,
+    Oval,
+    Arc
+}

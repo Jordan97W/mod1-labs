@@ -1,0 +1,117 @@
+package ballgame;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.*;
+
+public class Game extends Canvas {
+
+	public static void main(String[] args) {
+		//new Game();
+		
+	    // string testing
+//	    String name = "Jordan";//	
+//	    System.out.println("Third character: " + name.charAt(2));
+//	    System.out.println("Lowercase: " + name.toLowerCase());
+//	    System.out.println("Uppercase: " + name.toUpperCase());
+//	    for (char character : name.toCharArray()) {
+//	        System.out.print(character + "\t");
+//	    }
+//	    System.out.println();
+//	    System.out.println("Starts with 'Jo': " + name.startsWith("Jo"));
+//	    System.out.println("Ends with 'dan': " + name.endsWith("dan"));
+//	    System.out.println("Position of 'r': " + name.indexOf('r'));
+//	    System.out.println("Position of 'z': " + name.indexOf('z'));
+//	    String fullname = name + " Wilson";
+//	    System.out.println("Full name: " + fullname);
+		
+		// stringbuilder testing
+		StringBuilder sb = new StringBuilder("Sleep Token ");
+		sb.append("is the best band ever ");
+		System.out.println(sb.toString());
+		sb.insert(19, "greatest band ");
+		sb.replace(28, 50, "rock band ever");
+		System.out.println(sb.toString());
+	}
+
+	int test = 3;
+
+	// Create an array of 3 shapes
+	Shape[] shapes = new Shape[3];
+
+	Game() {
+
+		if (test == 1) {
+
+			shapes[0] = new Shape(1, 1, 30, 30, 10, 2, ShapeType.Rectangle, Color.red);
+			shapes[1] = new Shape(1, 1, 40, 40, 5, 5, ShapeType.RoundRectangle, Color.blue);
+			shapes[2] = new Shape(1, 1, 50, 50, 1, 3, ShapeType.Oval, Color.green);
+
+		} else if (test == 2) {
+
+			shapes[0] = new Shape(1, 1, 30, 30, 10, 2, ShapeType.ThreeDRectangle, Color.yellow);
+			shapes[1] = new Shape(10, 10, 40, 40, 5, 5, ShapeType.Oval, Color.magenta);
+			shapes[2] = new Shape(12, 12, 50, 50, 2, 2, ShapeType.Arc, Color.cyan);
+		}else if (test == 3) {
+
+			shapes[0] = new Shape(1, 1, 30, 30, 10, 2, ShapeType.ThreeDRectangle, Color.blue);
+			shapes[1] = new Shape(10, 10, 40, 40, 5, 5, ShapeType.Arc, Color.yellow);
+			shapes[2] = new Shape(12, 12, 50, 50, 2, 2, ShapeType.Rectangle, Color.cyan);
+		}
+		
+		JFrame frame = new JFrame();
+		this.setSize(1000, 600);
+		frame.add(this);
+		frame.pack();
+		frame.setVisible(true);
+
+		// Set world boundary
+		Shape.setWorld(600, 400);
+		Timer t = new Timer();
+		TimerTask tt = new TimerTask() {
+			@Override
+			public void run() {
+				draw();
+			}
+		};
+		t.schedule(tt, 0, 50);
+		frame.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				t.cancel();
+				tt.cancel();
+			}
+		});
+	}
+
+	public void draw() {
+		this.repaint();
+	}
+
+	public void paint(Graphics g) {
+		// Draw world
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, Shape.worldW, Shape.worldH);
+		// Draw each shape
+		for (Shape shape : shapes) {
+			// Set the colour of the shape
+			g.setColor(shape.getColour());
+			// Decide which shape to draw
+			if (shape.getShapeType() == ShapeType.Rectangle) {
+				g.fillRect(shape.x, shape.y, shape.w, shape.h);
+			} else if (shape.getShapeType() == ShapeType.ThreeDRectangle) {
+				g.fill3DRect(shape.x, shape.y, shape.w, shape.h, true);
+			} else if (shape.getShapeType() == ShapeType.RoundRectangle) {
+				g.fillRoundRect(shape.x, shape.y, shape.w, shape.h, 20, 20);
+			} else if (shape.getShapeType() == ShapeType.Oval) {
+				g.fillOval(shape.x, shape.y, shape.w, shape.h);
+			} else if (shape.getShapeType() == ShapeType.Arc) {
+				g.fillArc(shape.x, shape.y, shape.w, shape.h, 45, 270);
+			}
+			// Move the shape
+			shape.move();
+		}
+	}
+}
