@@ -4,38 +4,33 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class RegistrationPlateFactory {
-	// SET LICENSE PLATES AVAILABLE
-	private static String[] registrationPlates = { 
-			"LA05 XYZ", // London
-			"NG58 JKL", // Nottingham
-			"MA13 HYP", // Manchester
-			"BX06 TUV", // Birmingham
-			"CF67 QRS", // Cardiff
-			"YS09 PQR", // Yorkshire
-			"WD21 NML", // Exeter area
-			"KR16 FGH", // Northampton
-			"SJ04 UVW", // Glasgow
-			"LV22 ABC", // Liverpool
-			"WX19 XYZ" // Bristol
-	};
 
-	private static ArrayList<String> availablePlates = new ArrayList<>();
-	// GET LICENSE PLATE MAKING SURE TO ONLY GIVE NEW ONES
-	public static RegistrationPlate getNextRegistrationPlate() {
+    private static String[] registrationPlates = {
+            "LA05 XYZ", "NG58 JKL", "MA13 HYP", "BX06 TUV", "CF67 QRS",
+            "YS09 PQR", "WD21 NML", "KR16 FGH", "SJ04 UVW", "LV22 ABC", "WX19 XYZ"
+    };
 
-		if (availablePlates.isEmpty()) {
-			for (String plate : registrationPlates) {
-				availablePlates.add(plate);
-			}
-		}
+    private static ArrayList<String> availablePlates = new ArrayList<>();
 
-		Random rand = new Random();
-		// GRAB A RANDOM LICENSE PLATE FROM AVAILABLE PLATES
-		int index = rand.nextInt(availablePlates.size());
-		String plateNumber = availablePlates.get(index);
-		// REMOVE THIS LICENSE PLATE FROM LIST
-		availablePlates.remove(index);
+    // POPULATE THE POOL ONCE, WHEN THE CLASS IS FIRST LOADED
+    static {
+        for (String plate : registrationPlates) {
+            availablePlates.add(plate);
+        }
+    }
 
-		return new RegistrationPlate(plateNumber);
-	}
+    public static RegistrationPlate getNextRegistrationPlate() throws NoRegistrationPlatesAvailableException {
+
+        if (availablePlates.isEmpty()) {
+            throw new NoRegistrationPlatesAvailableException(
+                    "No registration plates left in the pool.");
+        }
+
+        Random rand = new Random();
+        int index = rand.nextInt(availablePlates.size());
+        String plateNumber = availablePlates.get(index);
+        availablePlates.remove(index);
+
+        return new RegistrationPlate(plateNumber);
+    }
 }

@@ -1,0 +1,37 @@
+package lab8;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class RegistrationPlateFactory {
+
+	private static String[] registrationPlates = { "LA05 XYZ", "NG58 JKL", "MA13 HYP", "BX06 TUV", "CF67 QRS",
+			"YS09 PQR", "WD21 NML", "KR16 FGH", "SJ04 UVW", "LV22 ABC", "WX19 XYZ" };
+
+	private static ArrayList<String> availablePlates = new ArrayList<>();
+
+	// LOAD ALL PLATES ONCE
+	static {
+		for (String plate : registrationPlates) {
+			availablePlates.add(plate);
+		}
+	}
+
+	public static RegistrationPlate getNextRegistrationPlate() throws NoRegistrationPlatesException {
+
+		// CHECK IF WE HAVE RUN OUT
+		if (availablePlates.isEmpty()) {
+			throw new NoRegistrationPlatesException("No registration plates are available.");
+		}
+
+		Random rand = new Random();
+
+		int index = rand.nextInt(availablePlates.size());
+
+		String plateNumber = availablePlates.get(index);
+
+		availablePlates.remove(index);
+
+		return new RegistrationPlate(plateNumber);
+	}
+}

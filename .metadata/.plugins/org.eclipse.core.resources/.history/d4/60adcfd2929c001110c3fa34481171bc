@@ -1,0 +1,11 @@
+package temp;
+
+import qa.Shape;
+
+public class Oval extends Shape{
+	public int w,h;
+public void doSomething() {
+	this.
+	
+}
+}

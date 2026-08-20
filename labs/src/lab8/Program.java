@@ -8,10 +8,15 @@ public class Program {
 	public static void main(String[] args) {
 		// SET ARRAYLIST OF VECHICLES
 		ArrayList<Vehicle> vehicles = new ArrayList<>();
-		// ADD VEHICLES TO ARRAY
-		vehicles.add(new Vehicle(0, 1));
-		vehicles.add(new Vehicle(0, 2));
-		vehicles.add(new Vehicle(0, 3));
+
+		for (int i = 1; i <= 13; i++) {  // 15 > 11 available plates
+		    try {
+		        vehicles.add(new Vehicle(0, i));
+		        System.out.println("Created vehicle " + i);
+		    } catch (VehicleCreationException e) {
+		        System.out.println("Failed to create vehicle " + i + ": " + e.getMessage());
+		    }
+		}
 		
 		System.out.println("Vehicles created:");
 		// GET DETAILS FOR ALL VEHICLES IN ARRAY
@@ -34,7 +39,7 @@ public class Program {
 
 				System.out.println(vehicle.getDetails());
 
-				if (vehicle.getDistanceTravelled() >= 1000) {
+				if (vehicle.getDistanceTravelled() >= 10) {
 					System.out.println("--------------\nWINNER!\n--------------");
 					System.out.println(vehicle.getWinnerDetails());
 					raceFinished = true;

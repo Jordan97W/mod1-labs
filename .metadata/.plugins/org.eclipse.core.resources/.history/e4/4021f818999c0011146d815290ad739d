@@ -1,0 +1,20 @@
+package qa;
+
+public class Chapter7 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+class Rectangle extends Shape {
+	public int w, h;
+
+	public void draw() {
+		System.out.println(x + ", " + y + ", " + w + ", " + h);
+
+	}
+
+}

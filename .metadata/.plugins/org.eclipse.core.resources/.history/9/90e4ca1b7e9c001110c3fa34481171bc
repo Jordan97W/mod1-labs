@@ -1,0 +1,33 @@
+package lab8;
+
+import java.util.Random;
+
+public class RegistrationPlateFactory {
+
+	private static String[] registrationPlates = { "LA05 XYZ", "NG58 JKL", "MA13 HYP", "BX06 TUV", "CF67 QRS",
+			"YS09 PQR", "WD21 NML", "KR16 FGH", "SJ04 UVW", "LV22 ABC", "WX19 XYZ" };
+
+	private static boolean[] used = new boolean[registrationPlates.length];
+
+	private static int usedCount = 0;
+
+	public static RegistrationPlate getNextRegistrationPlate() throws NoRegistrationPlateException {
+
+		if (usedCount == registrationPlates.length) {
+			throw new NoRegistrationPlateException("There are no registration plates left.");
+		}
+
+		Random rand = new Random();
+
+		int index;
+
+		do {
+			index = rand.nextInt(registrationPlates.length);
+		} while (used[index]);
+
+		used[index] = true;
+		usedCount++;
+
+		return new RegistrationPlate(registrationPlates[index]);
+	}
+}

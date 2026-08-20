@@ -1,0 +1,8 @@
+package lab8;
+
+public class NoRegistrationPlatesException extends Exception {
+
+    public NoRegistrationPlatesException(String message) {
+        super(message);
+    }
+}

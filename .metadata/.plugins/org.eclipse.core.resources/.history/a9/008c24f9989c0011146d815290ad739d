@@ -1,0 +1,67 @@
+package lab11;
+
+import java.awt.Color;
+import java.awt.Point;
+import java.util.ArrayList;
+
+public class Program {
+
+    public static void main(String[] args) {
+
+        // Create different shapes
+
+        Rectangle rectangle = new Rectangle(
+                Color.RED,
+                new Point(10, 20),
+                5,
+                10
+        );
+
+        Circle circle = new Circle(
+                Color.BLUE,
+                new Point(30, 40),
+                7
+        );
+
+        Sphere sphere = new Sphere(
+                Color.GREEN,
+                new Point(50, 60),
+                4
+        );
+
+
+        // Print characteristics
+
+        System.out.println(rectangle.getCharacteristics());
+
+        circle.printCharacteristics();
+
+        sphere.printCharacteristics();
+
+
+        // Create ArrayList of Shapes
+
+        ArrayList<Shape> shapes = new ArrayList<>();
+
+        // Add shapes to ArrayList
+
+        shapes.add(rectangle);
+        shapes.add(circle);
+        shapes.add(sphere);
+
+
+        // Loop through all shapes
+
+        System.out.println("\nShapes in ArrayList:");
+
+        for (Shape shape : shapes) {
+
+            System.out.println(
+                    "Colour: " + shape.getColour() +
+                    ", Position: (" +
+                    shape.getPosition().x + ", " +
+                    shape.getPosition().y + ")"
+            );
+        }
+    }
+}

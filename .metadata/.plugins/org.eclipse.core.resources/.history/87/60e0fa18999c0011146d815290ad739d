@@ -1,0 +1,11 @@
+package qa;
+
+class Rectangle extends Shape {
+	public int w, h;
+
+	public void draw() {
+		System.out.println(this.x);
+
+	}
+
+}

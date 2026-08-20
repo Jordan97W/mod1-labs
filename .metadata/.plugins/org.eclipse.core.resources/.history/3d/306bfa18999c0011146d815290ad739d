@@ -1,0 +1,7 @@
+package qa;
+
+public class Shape {
+	public int x, y;
+	public String colour;
+
+}
