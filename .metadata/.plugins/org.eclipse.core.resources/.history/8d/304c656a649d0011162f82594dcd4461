@@ -1,0 +1,30 @@
+package lab15;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Program {
+	public static void main(String[] args) {
+		List<Animal> animals = new ArrayList<>();
+		animals.add(new Duck("Ben"));
+		animals.add(new Penguin("Pingu"));
+		animals.add(new Fish("Nemo"));
+		animals.add(new Dolphin("Jimmy"));
+
+		for (Animal animal : animals) {
+			System.out.println("--- " + animal.getName() + " ---");
+			System.out.println("Type: " + animal.getAnimalType());
+
+			if (animal instanceof Bird bird) {
+				bird.makeNest();
+			}
+			if (animal instanceof Fish fish) {
+				fish.swim();
+			}
+			if (animal instanceof Mammal mammal) {
+				mammal.action();
+			}
+			System.out.println();
+		}
+	}
+}

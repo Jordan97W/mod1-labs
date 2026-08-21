@@ -1,0 +1,20 @@
+package lab14;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Program {
+
+    public static void main(String[] args) {
+
+        List<PaymentMethod> payments = new ArrayList<>();
+
+        payments.add(new CreditCardPayment("123456789"));
+        payments.add(new PayPalPayment("invalid-email"));
+        payments.add(new CryptoPayment("0xABC123456", 2500));
+
+        PaymentProcessor processor = new PaymentProcessor();
+
+        processor.processPayments(payments, 100);
+    }
+}

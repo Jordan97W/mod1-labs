@@ -1,0 +1,26 @@
+package lab13;
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        // a) create a Manager instance
+        Manager manager = new Manager("Alice Johnson", "Operations Manager");
+
+        // b) create a few regular Employee instances and add them
+        Employee emp1 = new Employee("Bob Smith", "Clerk");
+        Employee emp2 = new Employee("Carol Davis", "Receptionist");
+        manager.addEmployee(emp1);
+        manager.addEmployee(emp2);
+
+        // c) create a SkilledWorker with a few skills and add it
+        SkilledWorker worker = new SkilledWorker("Dave Wilson", "Technician");
+        worker.addSkill("Welding");
+        worker.addSkill("Electrical Wiring");
+        worker.addSkill("Forklift Operation");
+        manager.addEmployee(worker);
+
+        // d) call the manager's getInfo() and display it
+        System.out.println(manager.getInfo());
+    }
+}

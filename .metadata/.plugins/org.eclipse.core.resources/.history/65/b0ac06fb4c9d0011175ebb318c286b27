@@ -1,0 +1,8 @@
+package lab14;
+
+public abstract class PaymentMethod {
+
+    public abstract void processPayment(double amount);
+
+    public abstract String getPaymentDetails();
+}

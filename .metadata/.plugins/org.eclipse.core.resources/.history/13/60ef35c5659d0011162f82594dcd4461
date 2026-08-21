@@ -1,0 +1,12 @@
+package lab15;
+
+public class Dolphin extends Mammal {
+	public Dolphin(String name) {
+		super(name);
+	}
+
+	@Override
+	public void action() {
+		System.out.println(getName() + " sends out clicks to navigate and find fish using echolocation.");
+	}
+}

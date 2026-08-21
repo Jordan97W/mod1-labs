@@ -1,0 +1,8 @@
+package temp;
+
+public class Account {
+	double balance;
+
+	public void withdraw(int amt) {
+	}
+}

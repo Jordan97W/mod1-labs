@@ -1,0 +1,43 @@
+package lab12;
+
+public class Car {
+
+    private String model;
+    private int speed;
+
+    // Constructor
+    public Car(String model, int speed) {
+        this.model = model;
+        this.speed = speed;
+    }
+
+    // Accelerate the car
+    public void accelerate(int seconds) {
+        speed = speed + (5 * seconds);
+    }
+
+    // Get model
+    public String getModel() {
+        return model;
+    }
+
+    // Set model
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    // Get speed
+    public int getSpeed() {
+        return speed;
+    }
+
+    // Set speed
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    // Get car up to 60 MPH
+    public void getToSixty() {
+        speed = 60;
+    }
+}

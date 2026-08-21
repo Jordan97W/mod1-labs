@@ -1,0 +1,12 @@
+package lab15;
+
+public class Penguin extends Bird {
+    public Penguin(String name) {
+        super(name);
+    }
+
+    @Override
+    public void makeNest() {
+        System.out.println(getName() + " piles up small pebbles to make a simple nest on the ground.");
+    }
+}

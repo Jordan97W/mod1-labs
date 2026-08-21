@@ -1,0 +1,28 @@
+package lab14;
+
+public class CryptoPayment extends PaymentMethod {
+
+    private String walletAddress;
+    private double exchangeRate;
+
+    public CryptoPayment(String walletAddress, double exchangeRate) {
+        this.walletAddress = walletAddress;
+        this.exchangeRate = exchangeRate;
+    }
+
+    @Override
+    public boolean processPayment(double amount) {
+
+        double cryptoAmount = amount / exchangeRate;
+
+        System.out.println("Crypto payment processed.");
+        System.out.println("£" + amount + " = " + cryptoAmount + " crypto");
+
+        return true;
+    }
+
+    @Override
+    public String getPaymentDetails() {
+        return "Crypto Wallet: " + walletAddress;
+    }
+}

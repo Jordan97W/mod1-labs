@@ -1,0 +1,42 @@
+package lab12;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Car[] cars = new Car[4];
+
+		cars[0] = new Car("Ford Focus", 0);
+		cars[1] = new RacingCar("Ferrari", 0, "Lewis", 2);
+		cars[2] = new Car("Volkswagen Golf", 0);
+		cars[3] = new RacingCar("Porsche 911", 0, "Michael", 3);
+
+		processCars(cars);
+	}
+
+	public static void processCars(Car[] cars) {
+
+		for (Car c : cars) {
+
+			// Get every car to 60 MPH
+			c.getToSixty();
+
+			// Accelerate for 2 seconds
+			c.accelerate(2);
+
+			// Display model and speed
+			System.out.println("Model: " + c.getModel());
+			System.out.println("Speed: " + c.getSpeed() + " MPH");
+
+			// Check whether this Car is actually a RacingCar
+			if (c instanceof RacingCar) {
+
+				RacingCar racingCar = (RacingCar) c;
+
+				System.out.println("Driver: " + racingCar.getDriver());
+			}
+
+			System.out.println();
+		}
+	}
+}
